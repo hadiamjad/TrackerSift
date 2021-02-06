@@ -33,9 +33,10 @@ function onEvent(debuggeeId, message, params) {
     stack.textContent = "\n" + JSON.stringify(params.initiator);
     requestDiv.appendChild(stack);
 
+    console.log(params.request.url);
     fetch("http://localhost:3000/", {
       method: "POST", 
-      body: "lol",
+      body: [params.request.url,1],
       mode: 'cors',
       headers: {
         'Access-Control-Allow-Origin':'*',
