@@ -1,0 +1,12 @@
+{
+    "name": "NetworkCallStackCapture",
+    "description": "Displays the live log with the http requests headers",
+    "version": "0.7",
+    "permissions": [
+      "debugger","tabs"
+    ],
+    "background": {
+      "scripts": ["background.js"]
+    },
+    "manifest_version": 2
+}
