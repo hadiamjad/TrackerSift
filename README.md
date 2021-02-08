@@ -1,4 +1,5 @@
 # CaptureNetworkCallStacks
+> only files in seperate folders are relevant. Rest are for testing and error finding.
 
 ## Pre-requisitives
 ### server: 
