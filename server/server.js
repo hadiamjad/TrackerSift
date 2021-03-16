@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const port = 3000;
 const cors = require('cors');
 const {MongoClient} = require('mongodb');
-const uri="mongodb+srv://hadiyoville25:<password>@cluster0.26mt4.mongodb.net/NetworkCallStack?retryWrites=true&w=majority";
+const uri="mongodb+srv://hadiyoville25:Hadiharis1@cluster0.26mt4.mongodb.net/NetworkCallStack?retryWrites=true&w=majority";
 const client = new MongoClient(uri);
 
 app.use(cors({credentials: true, origin: true}));
@@ -17,14 +17,25 @@ app.use(bodyParser.json());
 })();
 
 async function insertRequest(client, newHttpReq){ 
-  const result = await client.db("NetworkCallStack").collection("logs").insertOne(newHttpReq);
-  console.log(`New listing created with the following id: ${result.insertedId}`);
+  const result = await client.db("NetworkCallStack").collection("request").insertOne(newHttpReq);
+  //console.log(`New request created with the following id: ${result.insertedId}`);
 }
 
-app.post('/', (req, res) => {
+async function insertResponse(client, newHttpResp){ 
+  const result = await client.db("NetworkCallStack").collection("response").insertOne(newHttpResp);
+  console.log(`New response created with the following id: ${result.insertedId}`);
+}
+
+app.post('/request', (req, res) => {
   //console.log(req.body);
   insertRequest(client, req.body);
-  res.send("success");
+  res.send("request-success");
+})
+
+app.post('/response', (req, res) => {
+  console.log("response");
+  insertResponse(client, req.body);
+  res.send("response-success");
 })
 
 app.listen(port, () => {
