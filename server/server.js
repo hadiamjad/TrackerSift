@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const port = 3000;
 const cors = require('cors');
 const {MongoClient} = require('mongodb');
-const uri="mongodb+srv://hadiyoville25:Hadiharis1@cluster0.26mt4.mongodb.net/NetworkCallStack?retryWrites=true&w=majority";
+const uri="mongodb://mongo:27017/NetworkCallStack";
 const client = new MongoClient(uri);
 
 app.use(cors({credentials: true, origin: true}));
@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 
 async function insertRequest(client, newHttpReq){ 
   const result = await client.db("NetworkCallStack").collection("request").insertOne(newHttpReq);
-  //console.log(`New request created with the following id: ${result.insertedId}`);
+  console.log(`New request created with the following id: ${result.insertedId}`);
 }
 
 async function insertResponse(client, newHttpResp){ 
@@ -33,7 +33,7 @@ app.post('/request', (req, res) => {
 })
 
 app.post('/response', (req, res) => {
-  console.log("response");
+  //console.log("response");
   insertResponse(client, req.body);
   res.send("response-success");
 })
