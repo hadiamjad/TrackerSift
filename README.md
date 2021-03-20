@@ -14,6 +14,9 @@ npm install
 ### chrome_extension
 nothing
 
+### mongoDB local
+You need to set-up mongoDB locally and provide appropriate URI string in server.js file
+
 ## Working
 1. start the local server after installing
 ```
