@@ -27,6 +27,8 @@ chrome.tabs.query({active:true},
       "top_level_url":params.documentURL,
       "resource_type":params.type,
       "header": params.request.headers,
+      "timestamp": params.timestamp,
+      "frameId": params.frameId,
       "call_stack":params.initiator}),
       mode: 'cors',
       headers: {
