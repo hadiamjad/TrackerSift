@@ -2,6 +2,7 @@ from selenium import webdriver
 import time
 from pyvirtualdisplay import Display
 import pandas as pd
+import requests
 
 # virtual display
 display = Display(visible=0, size=(800, 600))
@@ -23,6 +24,7 @@ for i in df.index:
         opt.add_argument('--no-sandbox')
 
         driver = webdriver.Chrome(options=opt)
+        requests.post(url = 'http://localhost:3000/complete', data = {'website': df['website'][i]})
         driver.get(r'https://www.'+ df['website'][i])
         # sleep
         time.sleep(10)
