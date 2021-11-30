@@ -4,6 +4,8 @@ You can read about this approach in this paper: https://dl.acm.org/doi/abs/10.11
 
 P.S This work is published at ACM IMC 2021. 
 
+This work is also presented at Adblock summit 2021: https://www.youtube.com/watch?v=V9CG0wdmfY4
+
 ## Implementation
 ![image](https://user-images.githubusercontent.com/46374292/144054324-242b6698-433f-4f33-aaf9-06e15631cbaa.png)
 
